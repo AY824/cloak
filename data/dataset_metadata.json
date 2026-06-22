@@ -1,0 +1,56 @@
+{
+  "dataset_name": "企业风险评估数据集",
+  "version": "1.0.0",
+  "description": "用于联邦学习的风险模拟数据集",
+  "risk_types": [
+    {
+      "code": "data_compliance",
+      "name": "数据合规风险",
+      "description": "企业数据收集、存储、使用过程中违反法律法规的风险"
+    },
+    {
+      "code": "patent_infringement",
+      "name": "专利侵权风险",
+      "description": "企业技术研发可能侵犯他人专利权的风险"
+    },
+    {
+      "code": "algorithm_security",
+      "name": "算法安全风险",
+      "description": "算法模型存在漏洞、被攻击或产生歧视性结果的风险"
+    },
+    {
+      "code": "rd_failure",
+      "name": "研发失败风险",
+      "description": "技术研发项目未能达到预期目标的风险"
+    },
+    {
+      "code": "geopolitical",
+      "name": "地缘管制风险",
+      "description": "受国际政治形势、出口管制等影响的风险"
+    },
+    {
+      "code": "tech_ethics",
+      "name": "科技伦理风险",
+      "description": "技术应用引发的伦理道德争议风险"
+    }
+  ],
+  "features": {
+    "count": 20,
+    "type": "numerical",
+    "description": "标准化后的数值特征，代表企业各维度风险指标"
+  },
+  "label": {
+    "name": "risk_label",
+    "type": "binary",
+    "description": "0=低风险, 1=高风险"
+  },
+  "data_distribution": {
+    "positive_ratio": "约30%",
+    "note": "模拟真实场景中风险样本占比较低的情况"
+  },
+  "federated_learning": {
+    "n_clients": 3,
+    "samples_per_client": 500,
+    "description": "模拟3个数据提供方的非IID数据分布"
+  }
+}

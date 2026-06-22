@@ -1,0 +1,130 @@
+# Cloak - 项目配置文件
+# ==============================================
+
+# Nostr 中继配置
+[nostr]
+# 默认中继列表
+relays = [
+    "wss://relay.damus.io",
+    "wss://relay.nostr.band",
+    "wss://nos.lol",
+    "wss://relay.snort.social"
+]
+
+# 连接超时时间（秒）
+connect_timeout = 10
+# 订阅超时时间（秒）
+subscription_timeout = 30
+
+# NIP-304 协议配置
+[nip304]
+# 协议版本
+version = "1.0.0"
+# 协议名称
+protocol_name = "Cloak Risk Data Trading Protocol"
+# 协议标识符
+protocol_id = "cloak-risk-data"
+
+# 事件类型定义
+event_types = {
+    "asset_publish" = 30401,
+    "demand_publish" = 30402,
+    "compute_params" = 30403,
+    "trade_receipt" = 30404,
+    "reputation_rating" = 30405
+}
+
+# 联邦学习配置
+[federated_learning]
+# 默认模型类型
+default_model_type = "logistic_regression"
+# 默认训练轮数
+default_rounds = 5
+# 默认本地训练轮次
+default_local_epochs = 1
+# 默认学习率
+default_learning_rate = 0.01
+# 默认批量大小
+default_batch_size = 32
+
+# 聚合算法
+aggregation_algorithm = "fedavg"
+
+# 贡献度计算权重
+contribution_weights = {
+    "sample_size" = 0.6,
+    "performance" = 0.4
+}
+
+# 差分隐私配置
+[differential_privacy]
+# 是否启用差分隐私
+enabled = true
+# 默认隐私预算 epsilon
+default_epsilon = 1.0
+# 默认敏感度
+default_sensitivity = 1.0
+# 噪声机制
+noise_mechanism = "laplace"
+
+# 区块链配置
+[blockchain]
+# 默认链 ID（以太坊主网=1，Sepolia测试网=11155111）
+chain_id = 11155111
+# 默认 RPC 端点
+rpc_url = "https://sepolia.infura.io/v3/YOUR_INFURA_KEY"
+# 合约地址（部署后填写）
+contracts = {
+    "risk_asset_nft" = "",
+    "trade_escrow" = "",
+    "revenue_split" = ""
+}
+
+# Gas 配置
+gas_limit = 3000000
+gas_price = "auto"
+
+# 数据配置
+[data]
+# 支持的风险类型
+risk_types = [
+    "data_compliance",
+    "patent_infringement",
+    "algorithm_security",
+    "rd_failure",
+    "geopolitical"
+]
+
+# 支持的行业
+industries = [
+    "ai_algorithm",
+    "internet",
+    "finance",
+    "biomedicine",
+    "advanced_manufacturing"
+]
+
+# 差分隐私等级
+dp_levels = ["weak", "medium", "strong"]
+
+# 日志配置
+[logging]
+# 日志级别：DEBUG, INFO, WARNING, ERROR, CRITICAL
+level = "INFO"
+# 日志格式
+format = "<green>{time:YYYY-MM-DD HH:mm:ss}</green> | <level>{level: <8}</level> | <cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> - <level>{message}</level>"
+# 是否输出到文件
+file_output = false
+# 日志文件路径
+log_file = "logs/cloak.log"
+
+# 测试配置
+[testing]
+# 是否使用模拟模式
+mock_mode = true
+# 测试数据样本数
+test_samples = 100
+# 测试客户端数量
+test_clients = 3
+# 随机种子
+random_seed = 42

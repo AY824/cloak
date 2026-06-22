@@ -1,0 +1,24 @@
+# Cloak - Python后端依赖
+# Nostr协议相关
+nostr-sdk==0.32.0
+nostr==0.3.0
+
+# 联邦学习
+flwr==1.8.0
+scikit-learn==1.5.0
+numpy==1.26.4
+pandas==2.2.2
+
+# 区块链
+web3==6.15.1
+eth-account==0.11.0
+
+# 数据处理
+python-dotenv==1.0.1
+pycryptodome==3.20.0
+base58==2.1.1
+
+# 工具
+click==8.1.7
+tqdm==4.66.4
+loguru==0.7.2
