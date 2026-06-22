@@ -34,9 +34,7 @@ RevenueSplit
 
 ---
 
-# scikit-learn/Flower
-
-# FedAvg/DP
+scikit-learn/Flower/DP
 
 ---
 
